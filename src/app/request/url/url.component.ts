@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UrlComponent implements OnInit {
 
+  urlData: String = 'asdf';
+
   constructor() { }
 
   ngOnInit(): void {

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestHeaderComponent implements OnInit {
 
+  content: String = '';
+
   constructor() { }
 
   ngOnInit(): void {

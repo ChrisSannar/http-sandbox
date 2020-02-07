@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+}
+
+.param {
+  flex-grow: 1;
+  margin-right: 1em;
+  * {
+    margin-top: 0.5em;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+#reqPath {
+  width: 100%;
+}

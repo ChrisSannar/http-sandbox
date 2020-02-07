@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParametersComponent implements OnInit {
 
+  reqHost: String = '';
+  reqPath: String = '';
+
   constructor() { }
 
   ngOnInit(): void {
