@@ -1,4 +1,7 @@
 :host {
   flex-grow: 1;
   margin-left: 1em;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
 }

@@ -1,0 +1,16 @@
+:host {
+  width: 100%;
+}
+
+#resp-data {
+  width: 100%;
+  height: 100%;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 14px;
+  white-space: nowrap;
+  padding: 0.5em;
+}
+
+#resp-data:focus {
+  outline: 0;
+}

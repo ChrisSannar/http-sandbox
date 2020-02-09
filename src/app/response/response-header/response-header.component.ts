@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResponseHeaderComponent implements OnInit {
 
+  headerText: String = 'qwer';
+
   constructor() { }
 
   ngOnInit(): void {

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestHeaderComponent implements OnInit {
 
-  content: String = '';
+  content: String = 'asdf';
 
   constructor() { }
 

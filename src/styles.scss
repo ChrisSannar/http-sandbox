@@ -1,3 +1,14 @@
 body {
   background: #e3e3e3;
 }
+
+.normalInput {
+  padding: 0.3em;
+  font-size: 14px;
+  font-family: "Lucida Console", Monaco, monospace;
+  border-radius: 2px;
+}
+
+.normalInput:focus {
+  outline: 0;
+}
