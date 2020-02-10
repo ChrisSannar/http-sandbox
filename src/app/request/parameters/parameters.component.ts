@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-parameters',
@@ -7,12 +7,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParametersComponent implements OnInit {
 
-  reqHost: String = '';
-  reqPath: String = '';
+  @Output() paramChange: EventEmitter<any> = new EventEmitter<any>();
+  req: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.req = {
+      type: 'GET',
+      path: ''
+    }
+  }
+
+  emitChange() {
+    this.paramChange.emit(this.req);
+  }
+
+  typeChange($event) {
+    const newVal = $event.target.value;
+    switch(newVal) {
+      case 'get': 
+        this.req.type = 'GET';
+        break;
+    }
+    this.emitChange();
   }
 
 }

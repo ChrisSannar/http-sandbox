@@ -1,14 +1,19 @@
 <span class="param">
   <label for="reqType">Type</label>
   <br>
-  <select name="reqType" id="reqType">
+  <select name="reqType" id="reqType" (change)="typeChange($event)">
     <option value="get">GET</option>
   </select>
 </span>
-<!-- <label for="reqHost">Host</label>
-<input type="text" name="reqHost" [(ngModel)]="reqHost" /> -->
 <span class="param">
   <label for="reqPath">Path</label>
   <br>
-  <input type="text" name="reqPath" id="reqPath" class="normalInput" [(ngModel)]="reqPath" />
+  <input 
+    type="text" 
+    name="reqPath" 
+    id="reqPath" 
+    class="normalInput"
+    appUrlPathValidate
+    [(ngModel)]="req.path"
+    (ngModelChange)="emitChange()"/>
 </span>

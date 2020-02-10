@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-url',
@@ -7,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UrlComponent implements OnInit {
 
-  urlData: String = 'asdf';
+  @Input() public urlData: String;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  // urlChange($event): void {
+  //   this.urlChangeEvent.emit($event);
+  // }
 
 }

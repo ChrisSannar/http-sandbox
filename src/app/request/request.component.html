@@ -1,4 +1,4 @@
-<app-url></app-url>
-<app-parameters></app-parameters>
-<button class="send-button">Send</button>
+<app-url [urlData]="urlData"></app-url>
+<app-parameters (paramChange)="paramChange($event)"></app-parameters>
+<button class="send-button" (click)="sendRequest()">Send</button>
 <app-request-header></app-request-header>

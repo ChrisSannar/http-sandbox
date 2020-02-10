@@ -10,6 +10,7 @@ import { ParametersComponent } from './request/parameters/parameters.component';
 import { DataComponent } from './response/data/data.component';
 import { ResponseHeaderComponent } from './response/response-header/response-header.component';
 import { RequestHeaderComponent } from './request/request-header/request-header.component';
+import { UrlPathValidateDirective } from './url-path-validate.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RequestHeaderComponent } from './request/request-header/request-header.
     ParametersComponent,
     DataComponent,
     ResponseHeaderComponent,
-    RequestHeaderComponent
+    RequestHeaderComponent,
+    UrlPathValidateDirective
   ],
   imports: [
     BrowserModule,
