@@ -10,15 +10,14 @@ export class UrlPathValidateDirective {
   constructor(el: ElementRef) { 
     this.el = el;
   }
-
-  // Regex for a url path
-  urlRegex: any = /^(\w+\/?)+(\.html)?$/g;
   
   @HostListener('keydown', ['$event']) onKeyDown(event: KeyboardEvent) {
-    // Check if all all writable keys match the url structure
+    // Check if all writable keys match the url structure
     if (event.keyCode > 47){
       let toCheck = this.el.nativeElement.value + event.key;
-      if (!(this.urlRegex.test(toCheck))) {
+      
+      // The regex for a url path
+      if (!(/^(\w+\/?)+(\.html)?$/g.test(toCheck))) {
         event.preventDefault();
       }
     }
