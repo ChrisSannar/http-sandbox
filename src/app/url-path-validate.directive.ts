@@ -11,16 +11,21 @@ export class UrlPathValidateDirective {
     this.el = el;
   }
 
-  // (^[\w\/]*)
+  // Regex for a url path
+  urlRegex: any = /^(\w+\/?)+(\.html)?$/g;
+  
   @HostListener('keydown', ['$event']) onKeyDown(event: KeyboardEvent) {
+    // Check if all all writable keys match the url structure
     if (event.keyCode > 47){
       let toCheck = this.el.nativeElement.value + event.key;
-      console.log(toCheck, (/a/g.test(toCheck)));
-      // event.preventDefault();
-    } else {
-      console.log(`KEY`, event.key);
+      if (!(this.urlRegex.test(toCheck))) {
+        event.preventDefault();
+      }
     }
-    
+    // Catch the space character
+    else if (event.keyCode == 32) { 
+      event.preventDefault();
+    }
   }
 
 }
