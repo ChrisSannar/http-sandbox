@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UrlComponent } from './url.component';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-host-url',
@@ -22,7 +23,8 @@ describe('UrlComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UrlComponent, HostUrlComponent ]
+      declarations: [ UrlComponent, HostUrlComponent ],
+      imports: [ FormsModule ]
     })
     .compileComponents();
   }));
@@ -48,6 +50,22 @@ describe('UrlComponent', () => {
   it('should have a label', () => {
     const labelValue = fixture.nativeElement.querySelector('label').innerText;
     expect(labelValue).toBe('URL');
+  });
+
+  it('should render the value in the input', async () => {
+    const inputEl: HTMLInputElement = fixture.debugElement.nativeElement.querySelector('#urlInput');
+    fixture.componentInstance.setInput('asdf');
+    fixture.detectChanges();
+    await fixture.whenStable();
+    expect(inputEl.value).toBe('asdf');
+  });
+
+  it('should update the parent component when the url changes', () => {
+
+  });
+
+  it('should not allow the url host to be deleted', () => {
+
   });
 
 });

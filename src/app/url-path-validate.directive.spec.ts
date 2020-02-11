@@ -26,7 +26,7 @@ describe('UrlPathValidateDirective', () => {
         TestComponent,
         UrlPathValidateDirective
       ],
-      imports: [FormsModule]
+      imports: [ FormsModule ]
     });
 
     fixture = TestBed.createComponent(TestComponent);

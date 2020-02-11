@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-request-header',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestHeaderComponent implements OnInit {
 
-  content: String = 'asdf';
+  @Input() public content: String;
 
   constructor() { }
 
