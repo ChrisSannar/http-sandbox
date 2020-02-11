@@ -12,8 +12,15 @@ export class UrlPathValidateDirective {
   }
   
   @HostListener('keydown', ['$event']) onKeyDown(event: KeyboardEvent) {
+    let keyCodeValue: any = event.keyCode;
+    
+    // Turns out Chrome has a bug. This makes sure that it's covered
+    if (event.keyCode === 0) {
+      keyCodeValue = event.key.charCodeAt(0);
+    }
+
     // Check if all writable keys match the url structure
-    if (event.keyCode > 47){
+    if (keyCodeValue > 47){
       let toCheck = this.el.nativeElement.value + event.key;
       
       // The regex for a url path
@@ -22,7 +29,7 @@ export class UrlPathValidateDirective {
       }
     }
     // Catch the space character
-    else if (event.keyCode == 32) { 
+    else if (keyCodeValue === 32) {
       event.preventDefault();
     }
   }
