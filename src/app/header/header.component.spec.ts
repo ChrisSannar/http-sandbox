@@ -1,13 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RequestHeaderComponent } from './request-header.component';
+import { HeaderComponent } from './header.component';
 import { FormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'test-component', 
   template: `
-    <app-request-header [content]="temp"></app-request-header>
+    <app-header [content]="temp"></app-header>
   `
 })
 class TestComponent {
@@ -20,13 +20,13 @@ class TestComponent {
   }
 }
 
-describe('RequestHeaderComponent', () => {
-  let component: RequestHeaderComponent;
+fdescribe('HeaderComponent', () => {
+  let component: HeaderComponent;
   let fixture: ComponentFixture<TestComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RequestHeaderComponent, TestComponent ],
+      declarations: [ HeaderComponent, TestComponent ],
       imports: [ FormsModule ]
     })
     .compileComponents();
@@ -56,5 +56,5 @@ describe('RequestHeaderComponent', () => {
     fixture.componentInstance.setInput('asdf');
     fixture.detectChanges();
     expect(p.innerText).toBe('asdf');
-  })
+  });
 });
