@@ -35,6 +35,10 @@ describe('RequestComponent', () => {
     expect(component.urlData).toBe(config.host + childParams.path);
   });
 
+  it('should build a request string based on data from child components', () => {
+    
+  });
+
   it('should send the data when the send button is clicked', () => {
 
   });

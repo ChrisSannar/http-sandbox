@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServerService } from '../server.service';
 
 @Component({
   selector: 'app-response',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResponseComponent implements OnInit {
 
-  constructor() { }
+  header: string[];
+  data: string;
+
+  constructor(private service: ServerService) { }
 
   ngOnInit(): void {
+    let temp = this.service.getServerResponse().subscribe((resp: string) => {
+      this.data = resp;
+      this.header = [resp];
+    });
+    setTimeout(() => { temp.unsubscribe() }, 5000);
   }
 
 }

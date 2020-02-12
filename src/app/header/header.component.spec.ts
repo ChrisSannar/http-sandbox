@@ -7,20 +7,20 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'test-component', 
   template: `
-    <app-header [content]="temp"></app-header>
+    <app-header [fields]="temp"></app-header>
   `
 })
 class TestComponent {
-  private temp: string;
+  private temp: string[];
 
   constructor() {}
 
-  setInput(text: string) {
+  setInput(text: string[]) {
     this.temp = text;
   }
 }
 
-fdescribe('HeaderComponent', () => {
+describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<TestComponent>;
 
@@ -42,19 +42,25 @@ fdescribe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should get it\'s content from the parent', () => {
+  it('should get it\'s fields from the parent', () => {
 
-    expect(component.content).toBeUndefined();
-    fixture.componentInstance.setInput('testing');
+    expect(component.fields).toBeUndefined();
+    const testFields = ['asdf', 'qwer', 'zxcv'];
+    fixture.componentInstance.setInput(testFields);
     fixture.detectChanges();
-    expect(component.content).toBe('testing');
+    expect(component.fields).toBe(testFields);
 
   });
 
-  it('should render the content on the page', () => {
-    const p: HTMLInputElement = fixture.debugElement.nativeElement.querySelector('p');
-    fixture.componentInstance.setInput('asdf');
+  it('should render the fields on the page', () => {
+    const testFields = ['asdf', 'qwer', 'zxcv'];
+    fixture.componentInstance.setInput(testFields);
     fixture.detectChanges();
-    expect(p.innerText).toBe('asdf');
+    const fields: NodeList = fixture.debugElement.nativeElement.querySelectorAll('p.headerField');
+    for (let i = 0; i < fields.length; i++) {
+      let el: HTMLElement = <HTMLElement>fields[i];
+      expect(el.innerText).toBe(testFields[i]);
+    }
   });
+
 });

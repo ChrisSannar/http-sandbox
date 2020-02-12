@@ -12,24 +12,42 @@ import { config } from '../../assets/config.js';
 export class RequestComponent implements OnInit {
 
   host: String;
-  urlData: String;
   params: any;
+  urlData: String;
+  header: String[];
+  info: any;
 
   constructor() { }
   
   ngOnInit(): void {
     this.host = `${config.host}`;
-    this.params = { path: '', type: ''};
+    this.params = { path: '', type: 'GET'};
+    this.info = {
+      protocol: 'HTTP/1.1',
+      accept: '*/*',
+      userAgent: navigator.userAgent
+    }
     this.updateURL();
+    this.updateHeader();
   }
 
   paramChange($event) {
     this.params = $event;
     this.updateURL();
+    this.updateHeader();
   }
 
   updateURL() {
     this.urlData = `${this.host}${this.params.path}`
+  }
+
+  updateHeader() {
+    this.header = [
+      `${this.params.type} ${this.params.path} ${this.info.protocol}`,
+      `Host: ${this.host}`,
+      `Accept: ${this.info.accept}`,
+      `User-Agent: ${this.info.userAgent}`
+    ];
   }
 
   sendRequest() {

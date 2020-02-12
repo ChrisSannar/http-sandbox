@@ -2,3 +2,15 @@
   font-family: "Lucida Console", Monaco, monospace;
   text-align: left;
 }
+
+div.headerContent {
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+p.headerField {
+  max-width: 10em;
+  margin-top: 0;
+  margin-bottom: 0;
+  white-space: nowrap;
+}
