@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { config } from '../assets/config';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +9,10 @@ import { Observable } from 'rxjs';
 export class ServerService {
 
   private serverResponse: Observable<any>;
+  private http: HttpClient;
   
-  constructor() {
+  constructor(http: HttpClient) {
+    this.http = http;
     // *** To be replaced with the HTTP response (and properly formated)
     this.serverResponse = new Observable(ob => {
       
@@ -34,5 +38,9 @@ export class ServerService {
 
   getServerResponse() {
     return this.serverResponse;
+  }
+
+  buildUrlFromRequest(requriements): string {
+    return `${ config.host }`;
   }
 }

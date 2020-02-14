@@ -4,7 +4,7 @@ import { RequestComponent } from './request.component';
 
 import { config } from '../../assets/config.js';
 
-describe('RequestComponent', () => {
+fdescribe('RequestComponent', () => {
   let component: RequestComponent;
   let fixture: ComponentFixture<RequestComponent>;
 
@@ -36,7 +36,10 @@ describe('RequestComponent', () => {
   });
 
   it('should build a request string based on data from child components', () => {
-    
+    const childParams = { type: 'GET', path: 'asdf/test' };
+    component.paramChange(childParams);
+    expect(component.header[0]).toContain(`${childParams.type} ${childParams.path} ${component.info.protocol}`);
+
   });
 
   it('should send the data when the send button is clicked', () => {
